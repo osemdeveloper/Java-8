@@ -32,7 +32,7 @@ class PersonService {
 	
 	public Optional<Person> findPersonByName(String name){
 		for(Person person: people) {
-			if(person.getName().equals(name)) {
+			if(person.getName().equalsIgnoreCase(name)) {
 				return Optional.of(person);
 			}
 		}
@@ -46,7 +46,7 @@ public class OptionalClassUsage {
 		PersonService personService = new PersonService();
 		
 		//Trying to find a person by name
-		String searchName = "net";
+		String searchName = "bob";
 		Optional<Person> personOptional = personService.findPersonByName(searchName);
 		
 		//Using Optional methods to handle the presence or absence of the person
